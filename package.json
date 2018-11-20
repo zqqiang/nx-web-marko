@@ -1,0 +1,24 @@
+{
+  "name": "nx-web-marko",
+  "version": "0.0.1",
+  "description": "Modern Web Demo with Marko.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "marko-starter server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zqqiang/nx-web-marko.git"
+  },
+  "author": "zqqiang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zqqiang/nx-web-marko/issues"
+  },
+  "homepage": "https://github.com/zqqiang/nx-web-marko#readme",
+  "dependencies": {
+    "marko": "^4.13.10"
+  },
+  "devDependencies": {}
+}
