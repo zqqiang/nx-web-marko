@@ -4,7 +4,8 @@
   "description": "Modern Web Demo with Marko.js",
   "main": "server.js",
   "scripts": {
-    "start": "marko-starter server",
+    "build": "webpack",
+    "start": "npm run build && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,17 @@
   },
   "homepage": "https://github.com/zqqiang/nx-web-marko#readme",
   "dependencies": {
-    "marko": "^4.13.10"
+    "app-module-path": "^2.2.0",
+    "browser-refresh-taglib": "^1.1.0",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
+    "lasso": "^3.2.7",
+    "lasso-marko": "^2.4.6",
+    "marko": "^4.13.10",
+    "marko-loader": "^1.3.3",
+    "serve-static": "^1.13.2",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
   },
   "devDependencies": {}
 }
