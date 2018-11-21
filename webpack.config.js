@@ -1,5 +1,6 @@
 "use strict";
-var webpack = require("webpack");
+const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
@@ -18,8 +19,22 @@ module.exports = {
       {
         test: /\.marko$/,
         loader: "marko-loader"
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader"
+        ]
       }
     ]
   },
-  plugins: [new webpack.NoEmitOnErrorsPlugin()]
+  plugins: [
+    new webpack.NoEmitOnErrorsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "static/style.[contenthash].css"
+    })
+  ]
 };

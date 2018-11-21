@@ -22,12 +22,12 @@ function render(input, out, __component, component, state) {
       _target: default_template,
       styles: {
           renderBody: function renderBody(out) {
-            out.w("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,700\" media=\"all\" rel=\"stylesheet\"><link href=\"/static/bundle.css\" media=\"all\" rel=\"stylesheet\">");
+            out.w("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,700\" media=\"all\" rel=\"stylesheet\"><link href=\"/static/style.css\" media=\"all\" rel=\"stylesheet\">");
           }
         },
       scripts: {
           renderBody: function renderBody(out) {
-            out.w("<script src=\"https://maps.googleapis.com/maps/api/js\"></script><script src=\"/static/bundle.js\"></script>");
+            out.w("<script src=\"/static/bundle.js\"></script>");
           }
         },
       title: {
@@ -37,7 +37,7 @@ function render(input, out, __component, component, state) {
         },
       body: {
           renderBody: function renderBody(out) {
-            app_tag({}, out, __component, "9");
+            app_tag({}, out, __component, "8");
           }
         },
       [hasRenderBodyKey]: true
