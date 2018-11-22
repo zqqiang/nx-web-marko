@@ -4,10 +4,10 @@
   "description": "Modern Web Demo with Marko.js",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
     "start": "npm run build && node server.js",
-    "watch": "npm run dev && browser-refresh server.js",
+    "watch": "browser-refresh server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -42,6 +42,7 @@
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "webpack-dev-server": "^3.1.10"
   }
 }
