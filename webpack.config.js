@@ -1,14 +1,16 @@
 "use strict";
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV || "development",
   devtool: "#cheap-source-map",
-  entry: "./src/client.js",
+  entry: "./src/index.js",
   output: {
-    path: __dirname,
-    filename: "static/bundle.js"
+    path: path.resolve(__dirname, "static"),
+    filename: "bundle.js"
   },
   resolve: {
     extensions: [".js", ".marko"],
@@ -26,15 +28,17 @@ module.exports = {
           "style-loader",
           MiniCssExtractPlugin.loader,
           "css-loader",
+          "postcss-loader",
           "sass-loader"
         ]
       }
     ]
   },
   plugins: [
+    new CleanWebpackPlugin("static", {}),
     new webpack.NoEmitOnErrorsPlugin(),
     new MiniCssExtractPlugin({
-      filename: "static/style.[contenthash].css"
+      filename: "style.css"
     })
   ]
 };

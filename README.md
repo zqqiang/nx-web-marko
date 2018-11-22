@@ -1,2 +1,9 @@
 # nx-web-marko
-Modern Web Demo with Marko.js
+
+Modern Web Demo with [`Marko.js`](https://markojs.com/)
+
+## Install
+
+```bash
+npm i
+```

@@ -4,9 +4,10 @@
   "description": "Modern Web Demo with Marko.js",
   "main": "server.js",
   "scripts": {
-    "build": "webpack",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
     "start": "npm run build && node server.js",
-    "watch": "browser-refresh server.js",
+    "watch": "npm run dev && browser-refresh server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -33,10 +34,13 @@
     "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
+    "autoprefixer": "^9.3.1",
     "browser-refresh": "^1.7.3",
+    "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1"
   }
