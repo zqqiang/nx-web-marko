@@ -4,7 +4,7 @@
   "description": "Modern Web Demo with Marko.js",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "npm run build && node server.js",
     "watch": "browser-refresh server.js",
