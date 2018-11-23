@@ -2,6 +2,7 @@ require("app-module-path").addPath(__dirname);
 require("marko/express");
 require("marko/node-require");
 
+const argv = require("yargs").argv;
 var express = require("express");
 
 // If the process was started using browser-refresh then enable
@@ -37,3 +38,19 @@ app.listen(port, function(err) {
     process.send("online");
   }
 });
+
+if (argv.d || argv.dev) {
+  const webpack = require("webpack");
+  const config = require("webpack.config.js");
+  const compiler = webpack(config, (err, stats) => {
+    if (err) {
+      console.error("[webpack config]", err.message);
+    }
+  });
+
+  compiler.watch({}, (err, stats) => {
+    if (err) {
+      console.log("[webpack watch]", err.message);
+    }
+  });
+}

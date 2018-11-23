@@ -4,10 +4,9 @@
   "description": "Modern Web Demo with Marko.js",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "npm run build && node server.js",
-    "watch": "webpack-dev-server --mode development",
+    "dev": "browser-refresh server.js --dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
