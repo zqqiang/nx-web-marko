@@ -42,9 +42,14 @@ module.exports = {
     })
   ],
   devServer: {
+    contentBase: path.join(__dirname, "static"),
+    compress: true,
     stats: "errors-only",
     host: process.env.HOST,
     port: process.env.PORT || 8090,
-    open: true
+    open: true,
+    after: function(app, server) {
+      app.get("/", require("./src/pages/home"));
+    }
   }
 };

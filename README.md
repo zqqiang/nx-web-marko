@@ -5,5 +5,5 @@ Modern Web Demo with [`Marko.js`](https://markojs.com/)
 ## Install
 
 ```bash
-npm i
+yarn install
 ```
