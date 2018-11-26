@@ -31,6 +31,14 @@ module.exports = {
           "postcss-loader",
           "sass-loader"
         ]
+      },
+      {
+        test: /\.(jpg|jpeg|gif|png)$/,
+        loader: "file-loader",
+        query: {
+          name: "static/[hash].[ext]",
+          publicPath: "/"
+        }
       }
     ]
   },
