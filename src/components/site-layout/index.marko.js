@@ -17,37 +17,29 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>");
+  out.w("<!doctype html><html lang=\"en\"><head><title>");
 
-  marko_dynamicTag(input.title, {}, out, __component, "4");
+  marko_dynamicTag(input.title, {}, out, __component, "3");
 
-  out.w("</title>");
+  out.w("</title><meta charset=\"utf-8\"><meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">");
 
-  marko_dynamicTag(input.styles, {}, out, __component, "5");
+  marko_dynamicTag(input.styles, {}, out, __component, "7");
 
   out.w("</head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<div class=\"container\"><h1>");
+  marko_dynamicTag(input.body, {}, out, __component, "9");
 
-  marko_dynamicTag(input.title, {}, out, __component, "9");
-
-  out.w("</h1><main id=\"main\">");
-
-  marko_dynamicTag(input.body, {}, out, __component, "11");
-
-  out.w("</main></div>");
-
-  marko_dynamicTag(input.scripts, {}, out, __component, "12");
+  marko_dynamicTag(input.scripts, {}, out, __component, "10");
 
   browser_refresh_tag({
       enabled: true
-    }, out, __component, "13");
+    }, out, __component, "11");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "14");
+  await_reorderer_tag({}, out, __component, "12");
 
   out.w("</body></html>");
 }

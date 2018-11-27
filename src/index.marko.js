@@ -8,10 +8,10 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_defineComponent = components_helpers.c,
     hasRenderBodyKey = Symbol.for("hasRenderBody"),
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    app_template = marko_loadTemplate(require.resolve("./components/app")),
+    dashboard_template = marko_loadTemplate(require.resolve("./components/dashboard")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    app_tag = marko_loadTag(app_template),
+    dashboard_tag = marko_loadTag(dashboard_template),
     site_layout_template = marko_loadTemplate(require.resolve("./components/site-layout")),
     site_layout_tag = marko_loadTag(site_layout_template);
 
@@ -21,7 +21,7 @@ function render(input, out, __component, component, state) {
   site_layout_tag({
       styles: {
           renderBody: function renderBody(out) {
-            out.w("<link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,400,700\" media=\"all\" rel=\"stylesheet\"><link href=\"/static/style.css\" media=\"all\" rel=\"stylesheet\">");
+            out.w("<link rel=\"stylesheet\" type=\"text/css\" href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons\"><link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css\"><link href=\"/static/style.css\" media=\"all\" rel=\"stylesheet\">");
           }
         },
       scripts: {
@@ -36,7 +36,7 @@ function render(input, out, __component, component, state) {
         },
       body: {
           renderBody: function renderBody(out) {
-            app_tag({}, out, __component, "8");
+            dashboard_tag({}, out, __component, "9");
           }
         },
       [hasRenderBodyKey]: true
@@ -53,7 +53,7 @@ marko_template.Component = marko_defineComponent({}, marko_template._);
 marko_template.meta = {
     id: "/nx-web-marko$0.0.1/src/index.marko",
     tags: [
-      "./components/app",
+      "./components/dashboard",
       "./components/site-layout"
     ]
   };

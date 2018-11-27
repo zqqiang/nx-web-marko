@@ -1,3 +1,3 @@
-require("src/global-style/style.scss");
-require("src/components/app");
+require("src/assets/css/material-dashboard.css");
+require("src/components/dashboard");
 require("marko/components").init();

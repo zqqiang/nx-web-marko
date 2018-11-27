@@ -3,3 +3,4 @@ static/
 *.marko.js
 *.map
 *.md
+.git/
