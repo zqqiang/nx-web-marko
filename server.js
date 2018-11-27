@@ -24,7 +24,7 @@ app.use(compression());
 app.use("/static", serveStatic(__dirname + "/static"));
 
 // Map the "/" route to the home page
-app.get("/", require("src/pages/home"));
+app.get("/", require("src/routes"));
 
 app.listen(port, function(err) {
   if (err) {
