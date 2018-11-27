@@ -30,7 +30,7 @@ app.listen(port, function(err) {
   if (err) {
     throw err;
   }
-  console.log("Listening on port %d", port);
+  console.log("Navigate to http://%s:%d", "localhost", port);
 
   // The browser-refresh module uses this event to know that the
   // process is ready to serve traffic after the restart
