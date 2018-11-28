@@ -12,8 +12,15 @@
         <tbody>
           <for(row in input.datas)>
             <tr>
-              <for(cell in row)>
-                <td>${cell}</td>
+              <for(cell in row | status-var=loop)>
+                <if(input.columns[loop.getIndex()] === "SN")>
+                  <td>
+                    <a href="/">${cell}</a>
+                  </td>
+                </if>
+                <else>
+                  <td>${cell}</td>
+                </else>
               </for>
             </tr>
           </for>
