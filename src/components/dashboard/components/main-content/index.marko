@@ -1,5 +1,42 @@
+$ let columns = [
+    "All",
+    "SN",
+    "Name",
+    "Sub Account",
+    "Firmware",
+    "Status",
+    "Active in",
+    "Latest Report",
+    "Last Log Upload",
+]
+$ let datas = [[
+  "",
+  "FGT60D4615007833",
+  "",
+  "",
+  "v6.0.0-0076",
+  "",
+  "alpha.forticloud.com",
+  "",
+  "alpha.forticloud.com"
+],[
+  "",
+  "FGT60D4615007834",
+  "",
+  "",
+  "v5.0.0-0076",
+  "",
+  "alpha.forticloud.com",
+  "",
+  "alpha.forticloud.com"
+]]
 <div class="content">
   <div class="container-fluid">
-    <!-- your content here --> Todos:
+    <content-header/>
+    <div class="row">
+      <div class="col-md-12">
+        <custom-table columns=columns datas=datas/>
+      </div>
+    </div>
   </div>
 </div>

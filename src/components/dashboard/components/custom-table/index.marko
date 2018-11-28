@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead class=" text-primary">
+          <tr>
+            <for(col in input.columns)>
+              <th>${col}</th>
+            </for>
+          </tr>
+        </thead>
+        <tbody>
+          <for(row in input.datas)>
+            <tr>
+              <for(cell in row)>
+                <td>${cell}</td>
+              </for>
+            </tr>
+          </for>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

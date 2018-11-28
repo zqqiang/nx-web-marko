@@ -1,4 +1,5 @@
 $ let url = input.href ? input.href : "/"
-<a.nav-link href=url>
+$ let className = input.class ? input.class : "nav-link"
+<a class=className href=url>
   <i.material-icons>${input.icon}</i>${input.label}
 </a>
