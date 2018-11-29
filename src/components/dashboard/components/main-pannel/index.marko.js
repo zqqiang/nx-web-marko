@@ -23,7 +23,9 @@ function render(input, out, __component, component, state) {
 
   nav_bar_tag({}, out, __component, "1");
 
-  main_content_tag({}, out, __component, "2");
+  main_content_tag({
+      page: input.page
+    }, out, __component, "2");
 
   custom_footer_tag({}, out, __component, "3");
 

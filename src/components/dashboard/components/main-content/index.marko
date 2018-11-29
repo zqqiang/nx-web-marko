@@ -33,10 +33,19 @@ $ let datas = [[
 <div class="content">
   <div class="container-fluid">
     <content-header/>
-    <div class="row">
-      <div class="col-md-12">
-        <custom-table columns=columns datas=datas/>
+    <if(input.page)>
+      <div class="row">
+        <div class="col-md-12">
+          <h1>${input.page}</h1>
+        </div>
       </div>
-    </div>
+    </if>
+    <else>
+      <div class="row">
+        <div class="col-md-12">
+          <custom-table columns=columns datas=datas/>
+        </div>
+      </div>
+    </else>
   </div>
 </div>

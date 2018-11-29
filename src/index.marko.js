@@ -36,7 +36,9 @@ function render(input, out, __component, component, state) {
         },
       body: {
           renderBody: function renderBody(out) {
-            dashboard_tag({}, out, __component, "9");
+            dashboard_tag({
+                page: input.page
+              }, out, __component, "9");
           }
         },
       [hasRenderBodyKey]: true

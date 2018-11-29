@@ -21,7 +21,9 @@ function render(input, out, __component, component, state) {
 
   side_bar_tag({}, out, __component, "1");
 
-  main_pannel_tag({}, out, __component, "2");
+  main_pannel_tag({
+      page: input.page
+    }, out, __component, "2");
 
   out.w("</div>");
 }

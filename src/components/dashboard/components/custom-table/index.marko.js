@@ -41,7 +41,7 @@ function render(input, out, __component, component, state) {
       var keyscope__14 = "[" + (((for__13++) + keyscope__11) + "]");
 
       if (input.columns[loop.getIndex()] === "SN") {
-        out.w("<td><a href=\"/\">" +
+        out.w("<td><a href=\"/Fos\">" +
           marko_escapeXml(cell) +
           "</a></td>");
       } else {
