@@ -27,6 +27,7 @@
     "eslint": "^5.9.0",
     "express": "^4.16.4",
     "file-loader": "^2.0.0",
+    "jquery": "3.2.1",
     "lasso": "^3.2.7",
     "lasso-marko": "^2.4.6",
     "marko": "^4.13.10",

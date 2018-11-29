@@ -33,12 +33,8 @@ $ let datas = [[
 <div class="content">
   <div class="container-fluid">
     <content-header/>
-    <if(input.page)>
-      <div class="row">
-        <div class="col-md-12">
-          <h1>${input.page}</h1>
-        </div>
-      </div>
+    <if(input.page === "Fos")>
+      <fos-layout/>
     </if>
     <else>
       <div class="row">

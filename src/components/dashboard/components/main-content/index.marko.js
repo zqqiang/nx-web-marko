@@ -11,7 +11,8 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     content_header_tag = marko_loadTag(content_header_template),
-    marko_escapeXml = marko_helpers.x,
+    fos_layout_template = marko_loadTemplate(require.resolve("../fos-layout")),
+    fos_layout_tag = marko_loadTag(fos_layout_template),
     custom_table_template = marko_loadTemplate(require.resolve("../custom-table")),
     custom_table_tag = marko_loadTag(custom_table_template);
 
@@ -56,17 +57,15 @@ function render(input, out, __component, component, state) {
 
   content_header_tag({}, out, __component, "2");
 
-  if (input.page) {
-    out.w("<div class=\"row\"><div class=\"col-md-12\"><h1>" +
-      marko_escapeXml(input.page) +
-      "</h1></div></div>");
+  if (input.page === "Fos") {
+    fos_layout_tag({}, out, __component, "3");
   } else {
     out.w("<div class=\"row\"><div class=\"col-md-12\">");
 
     custom_table_tag({
         columns: columns,
         datas: datas
-      }, out, __component, "8");
+      }, out, __component, "6");
 
     out.w("</div></div>");
   }
@@ -85,6 +84,7 @@ marko_template.meta = {
     id: "/nx-web-marko$0.0.1/src/components/dashboard/components/main-content/index.marko",
     tags: [
       "../content-header",
+      "../fos-layout",
       "../custom-table"
     ]
   };

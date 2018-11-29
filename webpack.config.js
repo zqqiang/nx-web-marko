@@ -47,6 +47,9 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.css"
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery"
     })
   ]
 };
