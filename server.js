@@ -27,29 +27,6 @@ app.use("/static", serveStatic(__dirname + "/static"));
 app.get("/", require("src/routes"));
 app.get("/:page", require("src/routes"));
 
-app.listen(port, function(err) {
-  if (err) {
-    throw err;
-  }
-  console.log("Navigate to http://%s:%d", "localhost", port);
-
-  // The browser-refresh module uses this event to know that the
-  // process is ready to serve traffic after the restart
-  if (process.send) {
-    process.send("online");
-  }
-
-  // todo: seems not working ?
-  process.once("SIGTERM", () => {
-    watcher.close(() => {
-      console.log("[webpack watch]: ended.");
-    });
-    sR.remove();
-    // Note: call this, or it will hang! default behavior removed by intercepting SIGTERM.
-    process.exit();
-  });
-});
-
 function webpackErrorHandler(err, stats) {
   if (err) {
     console.error(err.stack || err);
@@ -59,7 +36,7 @@ function webpackErrorHandler(err, stats) {
     return;
   }
 
-  const info = stats.toJson();
+  const info = stats.toJson("errors-only");
 
   if (stats.hasErrors()) {
     console.error(info.errors);
@@ -73,11 +50,12 @@ function webpackErrorHandler(err, stats) {
 if (argv.d || argv.dev) {
   const webpack = require("webpack");
   const config = require("webpack.config.js");
+
   const compiler = webpack(config, (err, stats) => {
     webpackErrorHandler(err, stats);
   });
 
-  compiler.watch(
+  const watching = compiler.watch(
     {
       aggregateTimeout: 300,
       poll: 1000
@@ -86,4 +64,29 @@ if (argv.d || argv.dev) {
       webpackErrorHandler(err, stats);
     }
   );
+
+  console.log(watching);
+
+  // todo: seems not working ?
+  process.once("SIGTERM", () => {
+    watching.close(() => {
+      console.log("[webpack watch]: ended.");
+    });
+    sR.remove();
+    // Note: call this, or it will hang! default behavior removed by intercepting SIGTERM.
+    process.exit();
+  });
 }
+
+app.listen(port, function(err) {
+  if (err) {
+    throw err;
+  }
+  console.log("Navigate to http://%s:%d", "localhost", port);
+
+  // The browser-refresh module uses this event to know that the
+  // process is ready to serve traffic after the restart
+  if (process.send) {
+    process.send("online");
+  }
+});

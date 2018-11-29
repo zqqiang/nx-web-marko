@@ -36,7 +36,7 @@ module.exports = {
         test: /\.(jpg|jpeg|gif|png)$/,
         loader: "file-loader",
         query: {
-          name: "static/img/[hash].[ext]",
+          name: "img/[name].[ext]",
           publicPath: "/"
         }
       }
@@ -49,7 +49,9 @@ module.exports = {
       filename: "style.css"
     }),
     new webpack.ProvidePlugin({
-      $: "jquery"
+      $: "jquery",
+      jQuery: "jquery",
+      Popper: ["popper.js", "default"]
     })
   ]
 };
