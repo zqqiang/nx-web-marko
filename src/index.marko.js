@@ -8,10 +8,10 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_defineComponent = components_helpers.c,
     hasRenderBodyKey = Symbol.for("hasRenderBody"),
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    dashboard_template = marko_loadTemplate(require.resolve("./components/dashboard")),
+    cloudmarko_template = marko_loadTemplate(require.resolve("./components/cloudmarko")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    dashboard_tag = marko_loadTag(dashboard_template),
+    cloudmarko_tag = marko_loadTag(cloudmarko_template),
     site_layout_template = marko_loadTemplate(require.resolve("./components/site-layout")),
     site_layout_tag = marko_loadTag(site_layout_template);
 
@@ -36,9 +36,7 @@ function render(input, out, __component, component, state) {
         },
       body: {
           renderBody: function renderBody(out) {
-            dashboard_tag({
-                page: input.page
-              }, out, __component, "10");
+            cloudmarko_tag({}, out, __component, "10");
           }
         },
       [hasRenderBodyKey]: true
@@ -55,7 +53,7 @@ marko_template.Component = marko_defineComponent({}, marko_template._);
 marko_template.meta = {
     id: "/nx-web-marko$0.0.1/src/index.marko",
     tags: [
-      "./components/dashboard",
+      "./components/cloudmarko",
       "./components/site-layout"
     ]
   };
