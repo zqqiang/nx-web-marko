@@ -9,7 +9,7 @@ var express = require("express");
 // hot reloading for certain types of files to short-circuit
 // a full process restart. You *should* use browser-refresh
 // in development: https://www.npmjs.com/package/browser-refresh
-require("marko/browser-refresh").enable();
+let sR = require("marko/browser-refresh").enable();
 
 var app = express();
 var compression = require("compression"); // Provides gzip compression for the HTTP response
@@ -38,20 +38,52 @@ app.listen(port, function(err) {
   if (process.send) {
     process.send("online");
   }
+
+  // todo: seems not working ?
+  process.once("SIGTERM", () => {
+    watcher.close(() => {
+      console.log("[webpack watch]: ended.");
+    });
+    sR.remove();
+    // Note: call this, or it will hang! default behavior removed by intercepting SIGTERM.
+    process.exit();
+  });
 });
+
+function webpackErrorHandler(err, stats) {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    return;
+  }
+
+  const info = stats.toJson();
+
+  if (stats.hasErrors()) {
+    console.error(info.errors);
+  }
+
+  if (stats.hasWarnings()) {
+    console.warn(info.warnings);
+  }
+}
 
 if (argv.d || argv.dev) {
   const webpack = require("webpack");
   const config = require("webpack.config.js");
   const compiler = webpack(config, (err, stats) => {
-    if (err) {
-      console.error("[webpack config]", err.message);
-    }
+    webpackErrorHandler(err, stats);
   });
 
-  compiler.watch({}, (err, stats) => {
-    if (err) {
-      console.log("[webpack watch]", err.message);
+  compiler.watch(
+    {
+      aggregateTimeout: 300,
+      poll: 1000
+    },
+    (err, stats) => {
+      webpackErrorHandler(err, stats);
     }
-  });
+  );
 }

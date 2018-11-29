@@ -1,6 +1,7 @@
 require("src/assets/css/material-dashboard.min.css");
-require("assets/js/perfect-scrollbar.jquery.min.js");
-// require("assets/js/bootstrap-material-design.min.js");
-require("assets/js/material-dashboard.min.js");
+// require("assets/js/material-dashboard.min.js");
+require("popper");
+require("bootstrap-material-design");
 require("src/components/dashboard");
+require("assets/img/favicon.png");
 require("marko/components").init();
