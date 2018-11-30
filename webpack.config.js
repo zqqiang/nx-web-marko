@@ -33,7 +33,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|jpeg|gif|png|ico)$/,
+        test: /\.(jpg|jpeg|gif|png)$/,
         loader: "file-loader",
         query: {
           name: "img/[name].[ext]",
@@ -43,7 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin("static", {}),
+    // new CleanWebpackPlugin("static", {}),
     new webpack.NoEmitOnErrorsPlugin(),
     new MiniCssExtractPlugin({
       filename: "style.css"

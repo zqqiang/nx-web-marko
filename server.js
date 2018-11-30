@@ -9,7 +9,7 @@ var express = require("express");
 // hot reloading for certain types of files to short-circuit
 // a full process restart. You *should* use browser-refresh
 // in development: https://www.npmjs.com/package/browser-refresh
-let sR = require("marko/browser-refresh").enable();
+require("marko/browser-refresh").enable();
 
 var app = express();
 var compression = require("compression"); // Provides gzip compression for the HTTP response
@@ -51,28 +51,24 @@ if (argv.d || argv.dev) {
   const webpack = require("webpack");
   const config = require("webpack.config.js");
 
-  const compiler = webpack(config, (err, stats) => {
-    webpackErrorHandler(err, stats);
-  });
+  const compiler = webpack(config);
+
+  compiler.hooks.afterEmit.tap("BrowserRefreshPlugin", compilation => {});
 
   const watching = compiler.watch(
     {
       aggregateTimeout: 300,
-      poll: 1000
+      poll: undefined
     },
     (err, stats) => {
       webpackErrorHandler(err, stats);
     }
   );
 
-  console.log(watching);
-
-  // todo: seems not working ?
   process.once("SIGTERM", () => {
     watching.close(() => {
       console.log("[webpack watch]: ended.");
     });
-    sR.remove();
     // Note: call this, or it will hang! default behavior removed by intercepting SIGTERM.
     process.exit();
   });
