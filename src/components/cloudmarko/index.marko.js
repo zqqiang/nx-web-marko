@@ -13,7 +13,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     main_header_tag = marko_loadTag(main_header_template),
     side_bar_template = marko_loadTemplate(require.resolve("../components/side-bar")),
     side_bar_tag = marko_loadTag(side_bar_template),
-    main_pannel_template = marko_loadTemplate(require.resolve("../components/main-pannel")),
+    main_pannel_template = marko_loadTemplate(require.resolve("./components/main-pannel")),
     main_pannel_tag = marko_loadTag(main_pannel_template);
 
 function render(input, out, __component, component, state) {
@@ -27,7 +27,9 @@ function render(input, out, __component, component, state) {
 
   out.w("<div class=\"container-fluid\"><div class=\"row\"><div class=\"cm-wrapper\">");
 
-  side_bar_tag({}, out, __component, "5");
+  side_bar_tag({
+      page: input.page
+    }, out, __component, "5");
 
   main_pannel_tag({
       page: input.page
@@ -51,6 +53,6 @@ marko_template.meta = {
     tags: [
       "./components/main-header",
       "../components/side-bar",
-      "../components/main-pannel"
+      "./components/main-pannel"
     ]
   };
