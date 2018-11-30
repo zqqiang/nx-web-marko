@@ -17,7 +17,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<div class=\"main-panel col-md-9 ml-sm-auto col-lg-10 pt-3 px-4\">");
+  out.w("<div class=\"main-panel ps-container ps-theme-default ps-active-y\">");
 
   main_content_tag({
       page: input.page

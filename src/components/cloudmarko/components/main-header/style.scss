@@ -1,3 +1,11 @@
 .navbar {
   margin-bottom: 0px;
+  .navbar-brand {
+    margin-left: 0px;
+  }
+}
+
+.navbar-brand {
+  width: 260px;
+  margin-right: 0px;
 }

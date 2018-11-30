@@ -17,7 +17,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!doctype html><html lang=\"en\"><head><title>");
+  out.w("<!doctype html><html lang=\"en\" class=\"perfect-scrollbar-on\"><head><title>");
 
   marko_dynamicTag(input.title, {}, out, __component, "3");
 

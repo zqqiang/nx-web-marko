@@ -23,15 +23,15 @@ function render(input, out, __component, component, state) {
 
   main_header_tag({}, out, __component, "1");
 
-  out.w("<div class=\"container-fluid\"><div class=\"row\">");
+  out.w("<div class=\"container-fluid\"><div class=\"row\"><div class=\"cm-wrapper\">");
 
-  side_bar_tag({}, out, __component, "4");
+  side_bar_tag({}, out, __component, "5");
 
   main_pannel_tag({
       page: input.page
-    }, out, __component, "5");
+    }, out, __component, "6");
 
-  out.w("</div></div></div>");
+  out.w("</div></div></div></div>");
 }
 
 marko_template._ = marko_renderer(render, {
@@ -42,6 +42,9 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
+    deps: [
+      "./style.scss"
+    ],
     id: "/nx-web-marko$0.0.1/src/components/cloudmarko/index.marko",
     tags: [
       "./components/main-header",
