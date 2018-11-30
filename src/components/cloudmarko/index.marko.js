@@ -23,13 +23,15 @@ function render(input, out, __component, component, state) {
 
   main_header_tag({}, out, __component, "1");
 
-  side_bar_tag({}, out, __component, "2");
+  out.w("<div class=\"container-fluid\"><div class=\"row\">");
+
+  side_bar_tag({}, out, __component, "4");
 
   main_pannel_tag({
       page: input.page
-    }, out, __component, "3");
+    }, out, __component, "5");
 
-  out.w("</div>");
+  out.w("</div></div></div>");
 }
 
 marko_template._ = marko_renderer(render, {

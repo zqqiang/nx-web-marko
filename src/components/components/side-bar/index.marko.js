@@ -5,24 +5,12 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_componentType = "/nx-web-marko$0.0.1/src/components/components/side-bar/index.marko",
     components_helpers = require("marko/src/components/helpers"),
     marko_renderer = components_helpers.r,
-    marko_defineComponent = components_helpers.c,
-    marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    icon_template = marko_loadTemplate(require.resolve("../icon")),
-    marko_helpers = require("marko/src/runtime/html/helpers"),
-    marko_loadTag = marko_helpers.t,
-    icon_tag = marko_loadTag(icon_template);
+    marko_defineComponent = components_helpers.c;
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<div data-color=\"orange\" data-background-color=\"white\" class=\"sidebar\"><div class=\"logo\">");
-
-  icon_tag({
-      icon: "cloud_queue",
-      class: "simple-text logo-mini"
-    }, out, __component, "2");
-
-  out.w("<a href=\"#\" class=\"simple-text logo-normal\">Cloud Demo</a></div><div class=\"sidebar-wrapper\"><ul class=\"nav\"><li class=\"nav-item active  \"><a class=\"nav-link\" href=\"#\"><i class=\"material-icons\">dashboard</i><p>Dashboard</p></a></li></ul></div></div>");
+  out.w("<nav class=\"col-md-2 d-none d-md-block bg-light sidebar\" data-color=\"orange\" data-background-color=\"white\"><div class=\"sidebar-sticky\"><ul class=\"nav flex-column\"><li class=\"nav-item active  \"><a class=\"nav-link\" href=\"#\"><i class=\"material-icons\">dashboard</i><p>Dashboard</p></a></li></ul></div></nav>");
 }
 
 marko_template._ = marko_renderer(render, {
@@ -36,8 +24,5 @@ marko_template.meta = {
     deps: [
       "./style.scss"
     ],
-    id: "/nx-web-marko$0.0.1/src/components/components/side-bar/index.marko",
-    tags: [
-      "../icon"
-    ]
+    id: "/nx-web-marko$0.0.1/src/components/components/side-bar/index.marko"
   };

@@ -81,6 +81,9 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
+    deps: [
+      "./style.scss"
+    ],
     id: "/nx-web-marko$0.0.1/src/components/components/main-content/index.marko",
     tags: [
       "../content-header",

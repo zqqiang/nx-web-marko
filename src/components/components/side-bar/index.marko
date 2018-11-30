@@ -1,12 +1,8 @@
-<div.sidebar data-color="orange" data-background-color="white">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar" data-color="orange" data-background-color="white">
   <!-- Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger" -->
   <!-- Tip 2: you can also add an image using data-image tag -->
-  <div.logo>
-    <icon icon="cloud_queue" class="simple-text logo-mini"/>
-    <a.simple-text.logo-normal href="#">Cloud Demo</a>
-  </div>
-  <div class="sidebar-wrapper">
-    <ul class="nav">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
       <li class="nav-item active  ">
         <a class="nav-link" href="#">
           <i class="material-icons">dashboard</i>
@@ -16,4 +12,4 @@
       <!-- your sidebar here -->
     </ul>
   </div>
-</div>
+</nav>
