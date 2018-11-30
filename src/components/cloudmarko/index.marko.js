@@ -7,59 +7,29 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    icon_template = marko_loadTemplate(require.resolve("../components/icon")),
+    main_header_template = marko_loadTemplate(require.resolve("./components/main-header")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    icon_tag = marko_loadTag(icon_template);
+    main_header_tag = marko_loadTag(main_header_template),
+    side_bar_template = marko_loadTemplate(require.resolve("../components/side-bar")),
+    side_bar_tag = marko_loadTag(side_bar_template),
+    main_pannel_template = marko_loadTemplate(require.resolve("../components/main-pannel")),
+    main_pannel_tag = marko_loadTag(main_pannel_template);
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<div class=\"wrapper\"><nav class=\"navbar navbar-expand-lg navbar-light bg-light\"><a class=\"navbar-brand\" href=\"/\">Cloud Marko</a><div class=\"navbar-wrapper\">");
+  out.w("<div class=\"wrapper\">");
 
-  icon_tag({
-      class: "navbar-brand",
-      icon: "home"
-    }, out, __component, "4");
+  main_header_tag({}, out, __component, "1");
 
-  out.w("</div><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\"><div class=\"collapse navbar-collapse justify-content-end\"><ul class=\"navbar-nav\"><li class=\"nav-item\">");
+  side_bar_tag({}, out, __component, "2");
 
-  icon_tag({
-      icon: "launch",
-      label: "zqqiang@fortinet.com"
-    }, out, __component, "9");
+  main_pannel_tag({
+      page: input.page
+    }, out, __component, "3");
 
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "person"
-    }, out, __component, "11");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "help"
-    }, out, __component, "13");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "email"
-    }, out, __component, "15");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "swap_horiz"
-    }, out, __component, "17");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "input"
-    }, out, __component, "19");
-
-  out.w("</li></ul></div></div></nav></div>");
+  out.w("</div>");
 }
 
 marko_template._ = marko_renderer(render, {
@@ -72,6 +42,8 @@ marko_template.Component = marko_defineComponent({}, marko_template._);
 marko_template.meta = {
     id: "/nx-web-marko$0.0.1/src/components/cloudmarko/index.marko",
     tags: [
-      "../components/icon"
+      "./components/main-header",
+      "../components/side-bar",
+      "../components/main-pannel"
     ]
   };
