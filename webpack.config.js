@@ -33,7 +33,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|jpeg|gif|png)$/,
+        test: /\.(jpg|jpeg|gif|png|ico)$/,
         loader: "file-loader",
         query: {
           name: "img/[name].[ext]",
