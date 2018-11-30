@@ -15,42 +15,48 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<nav class=\"navbar-expand-lg navbar-light bg-light navbar sticky-top flex-md-nowrap p-0\"><a class=\"navbar-brand mr-0\" href=\"/\"><p class=\"text-center\">Cloud Marko</p></a><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\"><div class=\"collapse navbar-collapse justify-content-end\"><ul class=\"navbar-nav\"><li class=\"nav-item\">");
+  out.w("<nav class=\"navbar-expand-lg navbar-light bg-light navbar sticky-top flex-md-nowrap p-0\"><a class=\"navbar-brand mr-0\" href=\"/\"><p class=\"text-center\">Cloud Marko</p></a><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">");
+
+  if (input.page === "Fos") {
+    out.w("<div class=\"collapse navbar-collapse justify-content-start\"><ul class=\"navbar-nav\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"/\">Analysis</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/\">Management</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/\">Sandbox</a></li></ul></div>");
+  }
+
+  out.w("<div class=\"collapse navbar-collapse justify-content-end\"><ul class=\"navbar-nav\"><li class=\"nav-item\">");
 
   icon_tag({
       icon: "launch",
       label: "zqqiang@fortinet.com"
-    }, out, __component, "7");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "person"
-    }, out, __component, "9");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "help"
-    }, out, __component, "11");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "email"
-    }, out, __component, "13");
-
-  out.w("</li><li class=\"nav-item\">");
-
-  icon_tag({
-      icon: "swap_horiz"
     }, out, __component, "15");
 
   out.w("</li><li class=\"nav-item\">");
 
   icon_tag({
-      icon: "input"
+      icon: "person"
     }, out, __component, "17");
+
+  out.w("</li><li class=\"nav-item\">");
+
+  icon_tag({
+      icon: "help"
+    }, out, __component, "19");
+
+  out.w("</li><li class=\"nav-item\">");
+
+  icon_tag({
+      icon: "email"
+    }, out, __component, "21");
+
+  out.w("</li><li class=\"nav-item\">");
+
+  icon_tag({
+      icon: "swap_horiz"
+    }, out, __component, "23");
+
+  out.w("</li><li class=\"nav-item\">");
+
+  icon_tag({
+      icon: "input"
+    }, out, __component, "25");
 
   out.w("</li></ul></div></div></nav>");
 }

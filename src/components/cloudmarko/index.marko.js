@@ -21,7 +21,9 @@ function render(input, out, __component, component, state) {
 
   out.w("<div class=\"wrapper\">");
 
-  main_header_tag({}, out, __component, "1");
+  main_header_tag({
+      page: input.page
+    }, out, __component, "1");
 
   out.w("<div class=\"container-fluid\"><div class=\"row\"><div class=\"cm-wrapper\">");
 
