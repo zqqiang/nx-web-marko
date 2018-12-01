@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/nx-web-marko$0.0.1/src/components/cloudmarko/components/sub-header/index.marko",
+    marko_componentType = "/nx-web-marko$0.0.1/src/components/cloudmarko/components/analysis-header/index.marko",
     components_helpers = require("marko/src/components/helpers"),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
@@ -19,7 +19,7 @@ function render(input, out, __component, component, state) {
 
   icon_tag({
       icon: "search",
-      href: "Fos/FortiView",
+      href: "/Analysis/FortiView",
       label: "FortiView"
     }, out, __component, "5");
 
@@ -27,7 +27,7 @@ function render(input, out, __component, component, state) {
 
   icon_tag({
       icon: "view_list",
-      href: "Fos/Logs",
+      href: "/Analysis/Logs",
       label: "Logs"
     }, out, __component, "7");
 
@@ -35,7 +35,7 @@ function render(input, out, __component, component, state) {
 
   icon_tag({
       icon: "note",
-      href: "Fos/Reports",
+      href: "/Analysis/Reports",
       label: "Reports"
     }, out, __component, "9");
 
@@ -43,7 +43,7 @@ function render(input, out, __component, component, state) {
 
   icon_tag({
       icon: "warning",
-      href: "Fos/EventManagement",
+      href: "/Analysis/EventManagement",
       label: "Event Management"
     }, out, __component, "11");
 
@@ -58,7 +58,7 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
-    id: "/nx-web-marko$0.0.1/src/components/cloudmarko/components/sub-header/index.marko",
+    id: "/nx-web-marko$0.0.1/src/components/cloudmarko/components/analysis-header/index.marko",
     tags: [
       "../../../components/icon"
     ]

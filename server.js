@@ -25,7 +25,7 @@ app.use("/static", serveStatic(__dirname + "/static"));
 
 // Map the "/" route to the home page
 app.get("/", require("src/routes"));
-app.get("/:page", require("src/routes"));
+app.get("/:page/:subpage", require("src/routes"));
 
 function webpackErrorHandler(err, stats) {
   if (err) {

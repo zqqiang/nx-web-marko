@@ -7,13 +7,9 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    content_header_template = marko_loadTemplate(require.resolve("../content-header")),
+    custom_table_template = marko_loadTemplate(require.resolve("../custom-table")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    content_header_tag = marko_loadTag(content_header_template),
-    fos_layout_template = marko_loadTemplate(require.resolve("../fos-layout")),
-    fos_layout_tag = marko_loadTag(fos_layout_template),
-    custom_table_template = marko_loadTemplate(require.resolve("../custom-table")),
     custom_table_tag = marko_loadTag(custom_table_template);
 
 function render(input, out, __component, component, state) {
@@ -55,17 +51,17 @@ function render(input, out, __component, component, state) {
 
   out.w("<div class=\"content\"><div class=\"container-fluid\">");
 
-  content_header_tag({}, out, __component, "2");
-
-  if (input.page === "Fos") {
-    fos_layout_tag({}, out, __component, "3");
-  } else {
+  if (input.subpage === "FortiView") {
+    out.w("<div class=\"row\"><h1>FortiView</h1></div>");
+  } else if (input.subpage === "Logs") {
+    out.w("<div class=\"row\"><h1>Logs</h1></div>");
+  } else if (input.page === undefined) {
     out.w("<div class=\"row\"><div class=\"col-md-12\">");
 
     custom_table_tag({
         columns: columns,
         datas: datas
-      }, out, __component, "6");
+      }, out, __component, "8");
 
     out.w("</div></div>");
   }
@@ -86,8 +82,6 @@ marko_template.meta = {
     ],
     id: "/nx-web-marko$0.0.1/src/components/components/main-content/index.marko",
     tags: [
-      "../content-header",
-      "../fos-layout",
       "../custom-table"
     ]
   };

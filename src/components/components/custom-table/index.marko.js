@@ -9,7 +9,8 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_forEach = marko_helpers.f,
     marko_escapeXml = marko_helpers.x,
-    marko_forEachWithStatusVar = require("marko/src/runtime/helper-forEachWithStatusVar");
+    marko_forEachWithStatusVar = require("marko/src/runtime/helper-forEachWithStatusVar"),
+    marko_escapeXmlAttr = marko_helpers.xa;
 
 function render(input, out, __component, component, state) {
   var data = input;
@@ -41,7 +42,9 @@ function render(input, out, __component, component, state) {
       var keyscope__14 = "[" + (((for__13++) + keyscope__11) + "]");
 
       if (input.columns[loop.getIndex()] === "SN") {
-        out.w("<td><a href=\"/Fos\">" +
+        out.w("<td><a href=\"/Analysis/FortiView?sn=" +
+          marko_escapeXmlAttr(cell) +
+          "\">" +
           marko_escapeXml(cell) +
           "</a></td>");
       } else {

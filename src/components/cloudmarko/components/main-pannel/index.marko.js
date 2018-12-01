@@ -7,10 +7,10 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
     marko_loadTemplate = require("marko/src/runtime/helper-loadTemplate"),
-    sub_header_template = marko_loadTemplate(require.resolve("../sub-header")),
+    analysis_header_template = marko_loadTemplate(require.resolve("../analysis-header")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    sub_header_tag = marko_loadTag(sub_header_template),
+    analysis_header_tag = marko_loadTag(analysis_header_template),
     main_content_template = marko_loadTemplate(require.resolve("../../../components/main-content")),
     main_content_tag = marko_loadTag(main_content_template),
     custom_footer_template = marko_loadTemplate(require.resolve("../../../components/custom-footer")),
@@ -21,12 +21,13 @@ function render(input, out, __component, component, state) {
 
   out.w("<div class=\"main-panel ps-container ps-theme-default ps-active-y\">");
 
-  if (input.page === "Fos") {
-    sub_header_tag({}, out, __component, "1");
+  if (input.page === "Analysis") {
+    analysis_header_tag({}, out, __component, "1");
   }
 
   main_content_tag({
-      page: input.page
+      page: input.page,
+      subpage: input.subpage
     }, out, __component, "2");
 
   custom_footer_tag({}, out, __component, "3");
@@ -44,7 +45,7 @@ marko_template.Component = marko_defineComponent({}, marko_template._);
 marko_template.meta = {
     id: "/nx-web-marko$0.0.1/src/components/cloudmarko/components/main-pannel/index.marko",
     tags: [
-      "../sub-header",
+      "../analysis-header",
       "../../../components/main-content",
       "../../../components/custom-footer"
     ]

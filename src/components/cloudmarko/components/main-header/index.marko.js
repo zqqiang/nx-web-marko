@@ -17,8 +17,8 @@ function render(input, out, __component, component, state) {
 
   out.w("<nav class=\"navbar-expand-lg navbar-light bg-light navbar sticky-top flex-md-nowrap p-0\"><a class=\"navbar-brand mr-0\" href=\"/\"><p class=\"text-center\">Cloud Marko</p></a><div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">");
 
-  if (input.page === "Fos") {
-    out.w("<div class=\"collapse navbar-collapse justify-content-start\"><ul class=\"navbar-nav\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Fos/Analysis\">Analysis</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Fos/Management\">Management</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Fos/Sandbox\">Sandbox</a></li></ul></div>");
+  if (input.page !== undefined) {
+    out.w("<div class=\"collapse navbar-collapse justify-content-start\"><ul class=\"navbar-nav\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Analysis/FortiView\">Analysis</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Management/Config\">Management</a></li><li class=\"nav-item\"><a class=\"nav-link\" href=\"/Sandbox/Dashboard\">Sandbox</a></li></ul></div>");
   }
 
   out.w("<div class=\"collapse navbar-collapse justify-content-end\"><ul class=\"navbar-nav\"><li class=\"nav-item\">");

@@ -22,17 +22,20 @@ function render(input, out, __component, component, state) {
   out.w("<div class=\"wrapper\">");
 
   main_header_tag({
-      page: input.page
+      page: input.page,
+      subpage: input.subpage
     }, out, __component, "1");
 
   out.w("<div class=\"container-fluid\"><div class=\"row\"><div class=\"cm-wrapper\">");
 
   side_bar_tag({
-      page: input.page
+      page: input.page,
+      subpage: input.subpage
     }, out, __component, "5");
 
   main_pannel_tag({
-      page: input.page
+      page: input.page,
+      subpage: input.subpage
     }, out, __component, "6");
 
   out.w("</div></div></div></div>");

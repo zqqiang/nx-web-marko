@@ -32,16 +32,22 @@ $ let datas = [[
 ]]
 <div class="content">
   <div class="container-fluid">
-    <content-header/>
-    <if(input.page === "Fos")>
-      <fos-layout/>
+    <if(input.subpage === "FortiView")>
+      <div class="row">
+        <h1>FortiView</h1>
+      </div>
     </if>
-    <else>
+    <else-if(input.subpage === "Logs")>
+      <div class="row">
+        <h1>Logs</h1>
+      </div>
+    </else-if>
+    <else-if(input.page === undefined)>
       <div class="row">
         <div class="col-md-12">
           <custom-table columns=columns datas=datas/>
         </div>
       </div>
-    </else>
+    </else-if>
   </div>
 </div>

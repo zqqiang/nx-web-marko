@@ -15,7 +15,7 @@
               <for(cell in row | status-var=loop)>
                 <if(input.columns[loop.getIndex()] === "SN")>
                   <td>
-                    <a href="/Fos">${cell}</a>
+                    <a href="/Analysis/FortiView?sn=${cell}">${cell}</a>
                   </td>
                 </if>
                 <else>

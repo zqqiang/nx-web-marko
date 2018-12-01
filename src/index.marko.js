@@ -37,7 +37,8 @@ function render(input, out, __component, component, state) {
       body: {
           renderBody: function renderBody(out) {
             cloudmarko_tag({
-                page: input.page
+                page: input.page,
+                subpage: input.subpage
               }, out, __component, "10");
           }
         },

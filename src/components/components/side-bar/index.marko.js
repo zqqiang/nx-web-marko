@@ -17,17 +17,13 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<nav class=\"d-none d-md-block bg-light sidebar\" data-color=\"orange\" data-background-color=\"white\"><div class=\"sidebar-sticky sidebar-wrapper\"><ul class=\"nav flex-column\">");
+  out.w("<nav class=\"d-none d-md-block bg-light sidebar\" data-color=\"orange\" data-background-color=\"white\"><div class=\"sidebar-sticky sidebar-wrapper\"><ul class=\"nav flex-column\"><li class=\"nav-item\">");
 
-  if (input.page === "Fos") {
-    out.w("<li class=\"nav-item\">");
+  select_menu_tag({
+      class: "nav-link"
+    }, out, __component, "4");
 
-    select_menu_tag({
-        class: "nav-link"
-      }, out, __component, "4");
-
-    out.w("</li>");
-  }
+  out.w("</li>");
 
   if (input.page === undefined) {
     nav_item_tag({}, out, __component, "5");
