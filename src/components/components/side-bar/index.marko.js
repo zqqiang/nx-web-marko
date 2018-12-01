@@ -10,12 +10,14 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     select_menu_template = marko_loadTemplate(require.resolve("../select-menu")),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
-    select_menu_tag = marko_loadTag(select_menu_template);
+    select_menu_tag = marko_loadTag(select_menu_template),
+    nav_item_template = marko_loadTemplate(require.resolve("../nav-item")),
+    nav_item_tag = marko_loadTag(nav_item_template);
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<nav class=\"d-none d-md-block bg-light sidebar\" data-color=\"orange\" data-background-color=\"white\"><div class=\"sidebar-sticky\"><ul class=\"nav flex-column\">");
+  out.w("<nav class=\"d-none d-md-block bg-light sidebar\" data-color=\"orange\" data-background-color=\"white\"><div class=\"sidebar-sticky sidebar-wrapper\"><ul class=\"nav flex-column\">");
 
   if (input.page === "Fos") {
     out.w("<li class=\"nav-item\">");
@@ -27,7 +29,11 @@ function render(input, out, __component, component, state) {
     out.w("</li>");
   }
 
-  out.w("<li class=\"nav-item active  \"><a class=\"nav-link\" href=\"#\"><i class=\"material-icons\">dashboard</i><p>Dashboard</p></a></li></ul></div></nav>");
+  if (input.page === undefined) {
+    nav_item_tag({}, out, __component, "5");
+  }
+
+  out.w("</ul></div></nav>");
 }
 
 marko_template._ = marko_renderer(render, {
@@ -43,6 +49,7 @@ marko_template.meta = {
     ],
     id: "/nx-web-marko$0.0.1/src/components/components/side-bar/index.marko",
     tags: [
-      "../select-menu"
+      "../select-menu",
+      "../nav-item"
     ]
   };

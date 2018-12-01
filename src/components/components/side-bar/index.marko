@@ -1,20 +1,16 @@
 <nav class="d-none d-md-block bg-light sidebar" data-color="orange" data-background-color="white">
   <!-- Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger" -->
   <!-- Tip 2: you can also add an image using data-image tag -->
-  <div class="sidebar-sticky">
+  <div class="sidebar-sticky sidebar-wrapper">
     <ul class="nav flex-column">
       <if(input.page==="Fos")>
         <li class="nav-item">
           <select-menu class="nav-link"/>
         </li>
       </if>
-      <li class="nav-item active  ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">dashboard</i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <!-- your sidebar here -->
+      <if(input.page === undefined)>
+        <nav-item/>
+      </if>
     </ul>
   </div>
 </nav>
